@@ -1,8 +1,8 @@
 {
-  "name": "react_vite",
+  "name": "camper_rent",
   "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "0.0.1",
+  "homepage": "https://yuriy-st.github.io/camper_rent/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
