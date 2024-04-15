@@ -2,62 +2,67 @@ import styled from '@emotion/styled';
 import { Container } from '../../components/Container';
 import { routes } from '../../routes';
 import { Link, NavLink } from 'react-router-dom';
+import { color } from '../../styles/theme';
+import { fontSize, spacing } from '../../styles/units';
+import { hexToRGBA } from '../../utilities';
 
 export const Header = () => {
+  const menu = [
+    { id: 'catalog', name: 'Catalog', path: routes.CATALOG },
+    { id: 'favorites', name: 'Favorites', path: routes.FAVORITES },
+  ];
+
   return (
     <HeaderStyled>
       <Container>
-        <Box>
-          <Link to={routes.HOME}>Logo</Link>
+        <FlexBox>
+          <Link to={routes.HOME}>CamperRent</Link>
           <Navigation>
             <Menu>
               {menu.map(({ id, name, path }) => (
                 <MenuItem key={id}>
-                  <NavLink to={path}>{name}</NavLink>
+                  <MenuLink to={path}>{name}</MenuLink>
                 </MenuItem>
               ))}
             </Menu>
           </Navigation>
-        </Box>
+        </FlexBox>
       </Container>
     </HeaderStyled>
   );
 };
 
-/* -------------------------------- Variables ------------------------------- */
-
-const menu = [
-  { id: 'catalog', name: 'Catalog', path: routes.CATALOG },
-  { id: 'favorites', name: 'Favorites', path: routes.FAVORITES },
-];
-
 /* --------------------------------- Styles --------------------------------- */
 
 const HeaderStyled = styled.header({
   label: 'Header',
-  backgroundColor: '#5454f2',
-  color: 'white',
+  backgroundColor: color.grey[600],
+  fontSize: fontSize.xl,
+  color: hexToRGBA(color.white, 70),
   display: 'flex',
   alignItems: 'center',
+  paddingTop: spacing.medium,
+  paddingBottom: spacing.medium,
 });
 
-const Box = styled.div();
-
-const Logo = styled.div({
-  fontSize: '1.5em',
-});
-
-const Navigation = styled.nav({
-  fontSize: '1.2em',
-  width: '100%',
+const FlexBox = styled.div({
+  label: 'FlexBox',
   display: 'flex',
+  width: '100%',
   justifyContent: 'space-between',
 });
+
+const Navigation = styled.nav({});
 
 const Menu = styled.ul({
-  width: '100%',
   display: 'flex',
-  justifyContent: 'space-between',
+  columnGap: spacing.xlarge,
 });
 
 const MenuItem = styled.li({});
+
+const MenuLink = styled(NavLink)`
+  &.active {
+    color: ${color.red[300]};
+  }
+`;
