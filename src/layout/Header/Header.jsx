@@ -61,8 +61,8 @@ const Menu = styled.ul({
 
 const MenuItem = styled.li({});
 
-const MenuLink = styled(NavLink)`
-  &.active {
-    color: ${color.red[300]};
-  }
-`;
+const MenuLink = styled(NavLink)({
+  '&.active': {
+    color: color.red[300],
+  },
+});

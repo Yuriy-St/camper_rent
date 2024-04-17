@@ -5,6 +5,4 @@ export const Container = styled.div({
   width: '74rem',
   marginLeft: 'auto;',
   marginRight: 'auto;',
-  display: 'flex',
-  justifyContent: 'center',
 });
