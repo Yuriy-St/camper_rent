@@ -1,13 +1,15 @@
 import { css } from '@emotion/react';
+import { palette, typography } from './theme';
+import {fontSize } from './units';
 import '@fontsource/inter';
-import { theme } from './theme';
-import { fontSizes } from './units';
 
 export default function globalStyles() {
   return css`
     :root {
-      font-family: ${theme.typography.fontFamily};
-      font-size: ${fontSizes.medium};
+      font-family: ${typography.fontFamily};
+      font-size: ${fontSize.m};
+      line-height: 1.5;
+      color: ${palette.text};
     }
 
     body {
@@ -52,7 +54,7 @@ export default function globalStyles() {
       object-fit: cover;
     }
 
-    .link {
+    a {
       text-decoration: none;
       color: inherit;
     }

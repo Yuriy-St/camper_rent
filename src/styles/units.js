@@ -10,11 +10,9 @@ export const spacing = {
   xxlarge: '96px',
 };
 
-export const fontSizes = {
-  xsmall: '0.75rem',
-  small: '0.875rem',
-  medium: '1rem',
-  large: '1.125rem',
-  xlarge: '1.25rem',
-  xxlarge: '1.375rem',
+export const fontSize = {
+  m: '1rem',
+  l: '1.125rem',
+  xl: '1.25rem',
+  xxl: '1.5rem',
 };

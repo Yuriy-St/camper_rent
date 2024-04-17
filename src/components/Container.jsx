@@ -7,7 +7,4 @@ export const Container = styled.div({
   marginRight: 'auto;',
   display: 'flex',
   justifyContent: 'center',
-  paddingTop: '2.5em',
-  paddingBottom: '2.5em',
-  rowGap: '2.5em',
 });

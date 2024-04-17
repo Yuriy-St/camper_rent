@@ -1,7 +1,11 @@
+import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from '../layout/Layout';
-import { Homepage, Catalog, Favorites } from '../views';
 import { routes } from '../routes';
+
+const Homepage = lazy(() => import('../views/Homepage'));
+const Catalog = lazy(() => import('../views/Catalog'));
+const Favorites = lazy(() => import('../views/Favorites'));
 
 export default function App() {
   return (

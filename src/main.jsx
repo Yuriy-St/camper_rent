@@ -10,8 +10,6 @@ import App from './app/App.jsx';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter basename="/camper_rent/">
     <Global styles={globalStyles} />
-    {/* <Provider> */}
     <App />
-    {/* </Provider> */}
   </BrowserRouter>
 );
