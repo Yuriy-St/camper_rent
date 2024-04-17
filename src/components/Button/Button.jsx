@@ -1,27 +1,30 @@
 import styled from '@emotion/styled';
-import { theme } from '../../styles/theme';
-import { spacing } from '../../styles/units';
+import { color, palette } from '../../styles/theme';
 
-export const Button = ({ type = 'button', children }) => {
-  return <StyledButton type={type}>{children}</StyledButton>;
+export const Button = ({ children }) => {
+  return <StyledButton type="button">{children}</StyledButton>;
 };
 
 /* --------------------------------- Styles --------------------------------- */
 
 const buttonText = {
-  color: theme.palette.white[100],
-  fontFamily: 'Manrope, sans-serif;',
-  fontSize: '14px',
-  fontStyle: 'normal',
-  fontWeight: '600',
-  lineHeight: '142.857%',
+  color: color.white,
+  fontWeight: 500,
+  letterSpacing: '-0.5%',
 };
 
-const StyledButton = styled.button(({ padX, padY, width, height }) => ({
-  label: 'Button',
-  ...buttonText,
-  height: height || '44px',
-  backgroundColor: theme.palette.primary.accent,
-  padding: `${padY || '14px'} ${padX || '44px'}`,
-  borderRadius: spacing.small,
-}));
+export const StyledButton = styled.button(
+  ({ padX = '40px', padY = '16px' }) => ({
+    label: 'Button',
+    ...buttonText,
+    backgroundColor: palette.button.surface,
+    padding: `${padY} ${padX}`,
+    borderRadius: '9999px',
+    '&:hover': {
+      backgroundColor: palette.button.hoverSurface,
+    },
+    '&:active': {
+      backgroundColor: palette.button.activeSurface,
+    },
+  })
+);

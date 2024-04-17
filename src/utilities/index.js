@@ -1,1 +1,2 @@
-export { default as hexToRGBA } from './hexToRGBA'
+export { hexToRGBA } from './hexToRGBA';
+export * from './stringUtils';

@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { typography } from './theme';
+import { palette, typography } from './theme';
 import {fontSize } from './units';
 import '@fontsource/inter';
 
@@ -8,6 +8,8 @@ export default function globalStyles() {
     :root {
       font-family: ${typography.fontFamily};
       font-size: ${fontSize.m};
+      line-height: 1.5;
+      color: ${palette.text};
     }
 
     body {

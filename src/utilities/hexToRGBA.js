@@ -1,4 +1,4 @@
-const hexToRGBA = (hexCode, opacity = 1) => {
+export const hexToRGBA = (hexCode, opacity = 1) => {
     let hex = hexCode.replace('#', '');
 
     if (hex.length === 3) {
@@ -16,5 +16,3 @@ const hexToRGBA = (hexCode, opacity = 1) => {
 
     return `rgba(${r},${g},${b},${opacity})`;
 };
-
-export default hexToRGBA;

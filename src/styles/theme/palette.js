@@ -27,7 +27,8 @@ export default {
   text: color.grey[600],
   button: {
     surface: color.red[300],
-    hoverSurface: color.red[400]
+    hoverSurface: color.red[400],
+    activeSurface: color.red[500],
   },
   buttonGhost: {
     stroke: hexToRGBA(color.grey[600], 20),
