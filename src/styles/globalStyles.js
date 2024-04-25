@@ -1,14 +1,14 @@
 import { css } from '@emotion/react';
-import { palette, typography } from './theme';
+import { palette, fontFamily, lineHeight } from './theme';
 import {fontSize } from './units';
 import '@fontsource/inter';
 
 export default function globalStyles() {
   return css`
     :root {
-      font-family: ${typography.fontFamily};
+      font-family: ${fontFamily};
       font-size: ${fontSize.m};
-      line-height: 1.5;
+      line-height: ${lineHeight.root};
       color: ${palette.text};
     }
 
