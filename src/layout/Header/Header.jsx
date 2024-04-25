@@ -3,7 +3,7 @@ import { Container } from '../../components/Container';
 import { routes } from '../../routes';
 import { Link, NavLink } from 'react-router-dom';
 import { color } from '../../styles/theme';
-import { fontSize, spacing } from '../../styles/units';
+import { fontSize, spacing, zIndex } from '../../styles/units';
 import { hexToRGBA } from '../../utilities';
 
 export const Header = () => {
@@ -36,13 +36,15 @@ export const Header = () => {
 
 const HeaderStyled = styled.header({
   label: 'Header',
+  position: 'fixed',
+  zIndex: zIndex.header,
+  width: '100%',
+  height: spacing.headerHeight,
   backgroundColor: color.grey[600],
   fontSize: fontSize.xl,
   color: hexToRGBA(color.white, 70),
   display: 'flex',
   alignItems: 'center',
-  paddingTop: spacing.medium,
-  paddingBottom: spacing.medium,
 });
 
 const FlexBox = styled.div({
