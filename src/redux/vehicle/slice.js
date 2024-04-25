@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {fetchAllCampers } from './operations';
+import { fetchAllCampers } from './operations';
 import { STATUS } from '../constants';
 
 const handlePending = state => {
@@ -14,7 +14,7 @@ const handleRejected = (state, action) => {
 const initialState = {
   items: [],
   status: STATUS.idle,
-  error: null,
+  error: null
 };
 
 const campersSlice = createSlice({
@@ -28,7 +28,7 @@ const campersSlice = createSlice({
         state.error = null;
         state.items = action.payload;
       })
-      .addCase(fetchAllCampers.rejected, handleRejected)
+      .addCase(fetchAllCampers.rejected, handleRejected);
   },
 });
 

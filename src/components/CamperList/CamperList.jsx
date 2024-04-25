@@ -1,10 +1,18 @@
 import styled from '@emotion/styled';
 import { useSelector } from 'react-redux';
-import { selectCampers } from '../../redux/vehicle/selectors';
-import { Card } from '../Card/Card';
+import {
+  selectCampers,
+  selectCampersError,
+  selectCampersStatus,
+} from '../../redux/vehicle/selectors';
+import { Card } from '../Card';
+import { STATUS } from '../../redux/constants';
+import { Loader } from '../Loader';
 
-export const CamperList = () => {
-  const campers = useSelector(selectCampers);
+export const CamperList = ({ campers, status, error }) => {
+  if (status === STATUS.pending) {
+    return <Loader />;
+  }
 
   return (
     <ListBox>
@@ -20,8 +28,10 @@ export const CamperList = () => {
 /* --------------------------------- Styles --------------------------------- */
 
 const ListBox = styled.ul({
+  label: 'CamplerList',
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'center',
   rowGap: '32px',
 });
 

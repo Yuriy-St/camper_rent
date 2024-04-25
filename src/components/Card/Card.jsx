@@ -1,57 +1,105 @@
 import styled from '@emotion/styled';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addToFavorites,
+  removeFromFavorites,
+} from '../../redux/favorites/slice';
+import { selectFavorites } from '../../redux/favorites/selectors';
+
 import { spacing } from '../../styles/units';
 import { hexToRGBA } from '../../utilities';
 import { H1, palette } from '../../styles/theme';
 import { LocationChip, RatingChip } from '../Chip';
-import { StyledButton } from '../Button/Button';
-import { Icon } from '../Icon';
+import { StyledButton } from '../Button';
 import { Categories } from './Categories';
+import { IconButton } from '../IconButton';
+const limitedList = [
+  'adults',
+  'transmission',
+  'engine',
+  'kitchen',
+  'bed',
+  'airConditioner',
+];
 
 export const Card = ({ item }) => {
-  const priceLocalized = item.price.toLocaleString('en-US', {
+  const dispatch = useDispatch();
+
+  const {
+    id,
+    name,
+    price,
+    rating,
+    location,
+    description,
+    details,
+    adults,
+    transmission,
+    engine,
+    gallery,
+    reviews,
+  } = item;
+
+  const favorites = useSelector(selectFavorites);
+  const isFavorite = favorites.some(item => item.id === id);
+
+  const toggleFavorite = () => {
+    isFavorite
+      ? dispatch(removeFromFavorites(item))
+      : dispatch(addToFavorites(item));
+  };
+
+  const priceLocalized = price.toLocaleString('en-US', {
     style: 'currency',
     currency: 'EUR',
     useGrouping: false,
   });
 
-  const details = {
-    ...item.details,
-    adults: item.adults,
-    transmission: item.transmission,
-    engine: item.engine,
+  const camperDetails = {
+    ...details,
+    adults: adults,
+    transmission: transmission,
+    engine: engine,
   };
 
-  const categories = Object.keys(details)
+  const categories = Object.keys(camperDetails)
     .sort()
-    .map(key => {
-      return {
-        id: key,
-        value: details[key],
-      };
-    });
+    .reduce((acc, key) => {
+      if (limitedList.includes(key)) {
+        acc.push({
+          id: key,
+          value: camperDetails[key],
+        });
+      }
+      return acc;
+    }, []);
 
-  console.log('categories', categories);
+  // console.log('categories', categories);
 
-  const ratingText = `${item.rating}(${item.reviews.length} Reviews)`;
+  const ratingText = `${rating}(${reviews.length} Reviews)`;
 
   return (
     <CardContainer>
-      <Photo src={item.gallery[0]} />
+      <Photo src={gallery[0]} />
       <DataBox>
         <TitleBox>
           <TitleRow>
             <Title>
-              <H1>{item.name}</H1>
+              <H1>{name}</H1>
               <H1>{`${priceLocalized}`}</H1>
             </Title>
-            <Icon id="heart" />
+            <IconButton
+              iconId="heart"
+              selected={isFavorite}
+              handleClick={toggleFavorite}
+            />
           </TitleRow>
           <ChipBox>
             <RatingChip text={ratingText} />
-            <LocationChip text={item.location} />
+            <LocationChip text={location} />
           </ChipBox>
         </TitleBox>
-        <Description>{item.description}</Description>
+        <Description>{description}</Description>
         <Categories items={categories} />
         <OpenCardButton>Show more</OpenCardButton>
       </DataBox>
