@@ -31,11 +31,14 @@ export default {
     activeSurface: color.red[500],
   },
   buttonGhost: {
+    surface: 'transparent',
     stroke: hexToRGBA(color.grey[600], 20),
-    hoverStroke: color.red[300]
+    hoverStroke: color.red[300],
+    activeSurface: hexToRGBA(color.red[400], 10),
   },
   error: {
-    surface: color.red[400],
-    stroke: hexToRGBA(color.black, 80),
+    surface: hexToRGBA(color.red[400], 30),
+    onSurface: color.red[500],
+    stroke: color.red[500],
   },
 };
