@@ -1,0 +1,1 @@
+import{a as t,j as e,C as r,T as a}from"./index-5954164d.js";import{s as o,C as i}from"./CamperList-380e8b9b.js";const m=()=>{const s=t(o);return e.jsx(r,{children:s!=null&&s.length?e.jsx(i,{campers:s}):e.jsx(a,{children:"You still don't have favorites 🤷‍♂️"})})};export{m as default};
