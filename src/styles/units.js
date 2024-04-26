@@ -19,6 +19,6 @@ export const fontSize = {
 };
 
 export const zIndex = {
-  header: 700,
-  overlay: 1000,
+  header: 9998,
+  backdrop: 9999,
 }

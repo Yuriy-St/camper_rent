@@ -1,4 +1,4 @@
-import { hexToRGBA } from "../../utilities";
+import { hexToRGBA } from '../../utilities';
 
 export const color = {
   white: '#ffffff',
@@ -15,8 +15,8 @@ export const color = {
     900: '#101828',
   },
   amber: {
-    400: '#FFC531'
-  }
+    400: '#FFC531',
+  },
 };
 
 export default {
@@ -25,6 +25,12 @@ export default {
   blockFeatures: color.grey[200],
   rating: color.amber[400],
   text: color.grey[600],
+  background: color.white,
+  backdropBg: hexToRGBA(color.grey[900], 40),
+  scrollbar: {
+    thumb: color.grey[200],
+    track: color.grey[100],
+  },
   button: {
     surface: color.red[300],
     hoverSurface: color.red[400],

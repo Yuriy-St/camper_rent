@@ -13,6 +13,8 @@ import { LocationChip, RatingChip } from '../Chip';
 import { StyledButton } from '../Button';
 import { Categories } from './Categories';
 import { IconButton } from '../IconButton';
+import { getRatingText, localizePrice } from '../../utilities/camperHelper';
+
 const limitedList = [
   'adults',
   'transmission',
@@ -22,7 +24,7 @@ const limitedList = [
   'airConditioner',
 ];
 
-export const Card = ({ item }) => {
+export const Card = ({ item, openModal }) => {
   const dispatch = useDispatch();
 
   const {
@@ -49,11 +51,7 @@ export const Card = ({ item }) => {
       : dispatch(addToFavorites(item));
   };
 
-  const priceLocalized = price.toLocaleString('en-US', {
-    style: 'currency',
-    currency: 'EUR',
-    useGrouping: false,
-  });
+  const priceLocalized = localizePrice(price);
 
   const camperDetails = {
     ...details,
@@ -74,9 +72,9 @@ export const Card = ({ item }) => {
       return acc;
     }, []);
 
-  // console.log('categories', categories);
+  const handleOpenModal = () => {};
 
-  const ratingText = `${rating}(${reviews.length} Reviews)`;
+  const ratingText = getRatingText(rating, reviews.length);
 
   return (
     <CardContainer>

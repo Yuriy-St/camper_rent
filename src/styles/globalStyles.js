@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { palette, fontFamily, lineHeight } from './theme';
-import {fontSize } from './units';
+import { fontSize } from './units';
 import '@fontsource/inter';
 
 export default function globalStyles() {
@@ -22,6 +22,19 @@ export default function globalStyles() {
     code {
       font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
+    }
+
+    /* -------------------------------- Scrollbar ------------------------------- */
+
+    ::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background: ${palette.scrollbar.thumb};
+      cursor: pointer;
     }
 
     /* ---------------------------------- Reset --------------------------------- */
@@ -65,8 +78,8 @@ export default function globalStyles() {
       margin: 0;
     }
 
-    .tmp {
-      background-color: #f3f6f9;
+    .lock {
+      overflow: hidden;
     }
   `;
 }
