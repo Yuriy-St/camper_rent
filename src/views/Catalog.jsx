@@ -16,7 +16,6 @@ import { Loader } from '../components/Loader';
 import { Error } from '../components/Error';
 import { resetCampers } from '../redux/vehicle/slice';
 import { useFetcher } from 'react-router-dom';
-import { Modal } from '../components/Modal/Modal';
 
 const Catalog = () => {
   const dispatch = useDispatch();
@@ -70,7 +69,6 @@ const Catalog = () => {
           <ButtonGhost handleClick={handleLoadMore}>Load more</ButtonGhost>
         )}
       </DataBox>
-      <Modal isOpen />
     </Container>
   );
 };
