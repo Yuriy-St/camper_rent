@@ -2,7 +2,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://661c3541e7b95ad7fa69efd6.mockapi.io/api';
 
-export const fetchAllCampers = async ({ page, limit, filters = {} } = {}) => {
+export const fetchCampers = async ({ page, limit = 4, filters = {} } = {}) => {
   const data = await processQuery({
     url: '/campers',
 		method: 'get',

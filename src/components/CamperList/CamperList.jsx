@@ -1,19 +1,7 @@
 import styled from '@emotion/styled';
-import { useSelector } from 'react-redux';
-import {
-  selectCampers,
-  selectCampersError,
-  selectCampersStatus,
-} from '../../redux/vehicle/selectors';
 import { Card } from '../Card';
-import { STATUS } from '../../redux/constants';
-import { Loader } from '../Loader';
 
-export const CamperList = ({ campers, status, error }) => {
-  if (status === STATUS.pending) {
-    return <Loader />;
-  }
-
+export const CamperList = ({ campers }) => {
   return (
     <ListBox>
       {campers.map(item => (
